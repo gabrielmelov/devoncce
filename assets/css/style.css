@@ -36,7 +36,7 @@
     font-size: 1.4rem;
     padding: 0.5rem;
 }
-.nav-item a {
+.nav-link {
     color: #FFF;
     text-decoration: none;
 }
@@ -66,7 +66,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap-reverse;
     padding: 0 6rem;
     position: relative;
     height: 100vh;
@@ -124,7 +123,7 @@
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     /* Header Mobile */
     .cabecalho, .cabecalho.bg {
         justify-content: space-between;
@@ -207,7 +206,7 @@
     }
     .sobre-titulo {
         width: 100%;
-        font-size: 1rem;
+        font-size: 1.4rem;
     }
     .sobre-imagem {
         display: none;
