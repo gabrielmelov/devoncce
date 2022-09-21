@@ -7,25 +7,32 @@
   <meta name="author" content="devoncce">
   <title>Devoncce</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="shortcut icon" href="assets/img/logo-devoncce_white.png">
 </head>
 <body>
   <header class="cabecalho">
     <img src="assets/img/logo-devoncce.png" class="logo-header" alt="Logotipo da Devoncce">
-    <nav class="nav">
-      <ul>
-        <li class="nav-item"><a href="#">Home</a></li>
-        <li class="nav-item"><a href="#">Sobre</a></li>
+    <nav id="nav">
+      <button id="btn-mobile" aria-label="Abrir Menu" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+        <span id="hamburguer"></span>
+      </button>
+      <ul id="menu" role="menu">
+        <li class="nav-item"><a href="#principal">Home</a></li>
+        <li class="nav-item"><a href="#sobre">Sobre</a></li>
         <li class="nav-item"><a href="#">Vantagens</a></li>
         <li class="nav-item"><a href="#">Serviços</a></li>
         <li class="nav-item"><a href="#">Contato</a></li>
       </ul>
     </nav>
   </header>
-  <main class="principal">
+  <main id="principal">
     <h1 class="principal-titulo">Uma <strong>experiência</strong> inesquecível ao seu cliente</h1>
   </main>
-  <section>
-
+  <section id="sobre">
+    <div class="sobre-titulo">
+      <h1>Somos uma <strong>startup</strong> de tecnologia para desenvolvimento de aplicações <strong>WEB</strong> para pequenas e médias empresas</h1>
+    </div>
+    <img src="assets/img/logo-devoncce_white.png" class="sobre-imagem" alt="Logotipo da Devoncce">
   </section>
 
   <script src="assets/js/main.js"></script>
