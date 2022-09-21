@@ -25,14 +25,19 @@ function toggleMenu() {
     } else {
         event.currentTarget.setAttribute('aria-label', 'Abrir Menu')
     }
+    // Close menu on click in link
     anchor.forEach(link => {
+        link.addEventListener('touchstart', () => {
+            nav.classList.remove('active')
+        })
         link.addEventListener('click', () => {
             nav.classList.remove('active')
         })
+        if(event.type === 'touchstart') {
+            event.preventDefault()
+        }    
     })
-
 }
-
 
 btnMobile.addEventListener('click', toggleMenu);
 btnMobile.addEventListener('touchstart', toggleMenu);
