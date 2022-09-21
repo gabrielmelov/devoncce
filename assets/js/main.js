@@ -8,13 +8,15 @@ function ativaScroll() {
 window.addEventListener('scroll', ativaScroll);
 
 // Button mobile animation
-const btnMobile = document.getElementById('btn-mobile');
+const btnMobile = document.querySelector('#btn-mobile');
 
 function toggleMenu() {
     if (event.type === 'touchstart') {
         event.preventDefault()
     }
-    const nav = document.getElementById('nav');
+    const nav = document.querySelector('#nav');
+    const anchor = document.querySelectorAll('.nav-link')
+
     nav.classList.toggle('active');
     const active = nav.classList.contains('active')
     event.currentTarget.setAttribute('aria-expanded', active)
@@ -23,7 +25,14 @@ function toggleMenu() {
     } else {
         event.currentTarget.setAttribute('aria-label', 'Abrir Menu')
     }
+    anchor.forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('active')
+        })
+    })
+
 }
+
 
 btnMobile.addEventListener('click', toggleMenu);
 btnMobile.addEventListener('touchstart', toggleMenu);
