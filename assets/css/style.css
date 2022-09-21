@@ -14,12 +14,22 @@
     top: 0;
     display: flex;
     align-items: center;
+    padding: 0.4rem 0;
+    flex-wrap: wrap;
     justify-content: space-around;
     background: transparent;
     width: 100%;
+    transition: all 600ms;
+    z-index: 1000;
+}
+.cabecalho.bg {
+    background: rgba(0, 0, 0, 0.95);
 }
 .logo-header {
-    width: 20%;
+    width: 23.25rem;
+}
+#menu {
+    padding-left: 3rem;
 }
 .nav-item {
     display: inline-block;
@@ -30,9 +40,12 @@
     color: #FFF;
     text-decoration: none;
 }
+#btn-mobile {
+    display: none;
+}
 
 /* Home */
-.principal {
+#principal {
     display: grid; 
     place-content: center;
     background: url('../img/bg-empresarial.png') center / cover no-repeat;
@@ -41,7 +54,162 @@
 .principal-titulo {
     color: #FFF;
     text-transform: uppercase;
+    text-align: center;
 }
 .principal-titulo strong {
     color: #6B35E8;
+}
+
+/* Sobre */
+#sobre {
+    background: url('../img/bg-developer.png') center / cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+    padding: 0 6rem;
+    position: relative;
+    height: 100vh;
+}
+.sobre-titulo {
+    color: #FFF;
+    font-size: 2rem;
+    text-align: center;
+    width: 50%;
+}
+.sobre-titulo h1 {
+    font-weight: 400;
+}
+.sobre-titulo strong {
+    color:#6B35E8;
+}
+.sobre-imagem {
+    position: absolute;
+    top: 200px;
+    right: 0;
+    filter: drop-shadow(-5px -1px 0px #6B35E8);
+    transform: translateY(0px);
+    animation: float 4s ease-in-out infinite;
+    width: 35rem;
+    padding-right: 6%;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    #sobre {
+        justify-content: center;
+        flex-direction: column;
+    }
+    .sobre-titulo {
+        padding-top: 2.5rem;
+        font-size: 1.7rem;
+        width: 75%;
+    }
+    .sobre-imagem {
+        padding-top: 3.8rem;
+        display: grid;
+        position: static;
+        width: 25rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    /* Header Mobile */
+    .cabecalho, .cabecalho.bg {
+        justify-content: space-between;
+        padding: 0.3rem 1rem 0.5rem;
+        background: #000;
+    }
+    .logo-header {
+        width: 10rem;
+    }
+    #btn-mobile {
+        display: block;
+    }
+    #menu {
+        display: block;
+        position: absolute;
+        top: 60px;
+        right: 0px;
+        background: #000;
+        display: block;
+        padding-left: 0;
+        width: 100%;
+        height: 0px;
+        z-index: 1000;
+        transition: .6s;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+    .nav-item {
+        display: flex;
+    }
+    #nav.active #menu {
+        height: calc(100vh - 60px);
+        visibility: visible;
+        overflow-y: auto;
+    }
+    .nav-item {
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid #6B35E8;
+    }
+    #btn-mobile {
+        color: #FFF;
+        display: flex;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: .5rem;
+    }
+    #hamburguer {
+        border-top: 2px solid;
+        width: 20px;
+    }
+    #hamburguer::after, #hamburguer::before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        margin-top: 5px;
+        transition: .3s;
+        position: relative;
+    }
+    #nav.active #hamburguer{
+        border-top-color: transparent;
+    }
+    #nav.active #hamburguer::before {
+        transform: rotate(45deg);
+    }
+    #nav.active #hamburguer::after {
+        transform: rotate(-45deg);
+        top: -7px;
+    }
+    /* Sobre */
+    #sobre {
+        display: grid;
+        place-content: center;
+        background-position: 15%;
+    }
+    .sobre-titulo {
+        width: 100%;
+        font-size: 1rem;
+    }
+    .sobre-imagem {
+        display: none;
+    }
 }
